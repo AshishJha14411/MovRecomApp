@@ -1,11 +1,17 @@
 import './App.css';
-import GenreCard from './components/GenreCard';
+import Home from './components/Home';
 import { GenreListProvider } from './context/GenreContext';
+import { MovieListProvider } from './context/MovieContext';
+import { VideoProvider } from './context/VideoContext';
 
 function App() {
   return (
     <GenreListProvider>
-      <GenreCard />
+      <MovieListProvider>
+      <VideoProvider>
+        <Home />
+      </VideoProvider>
+      </MovieListProvider>
     </GenreListProvider>
     );
 }
