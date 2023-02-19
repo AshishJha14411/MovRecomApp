@@ -1,11 +1,23 @@
-import React, {useContext, useEffect} from 'react'
-import { MovieContext } from '../context/types';
+import  {useContext} from 'react'
+import { MovieContext, VideoContext } from '../context/types';
 import { MoviesContext } from '../context/MovieContext'
+import {VideosContext } from '../context/VideoContext'
 const MovieCard = () => {
 
   const {movieList, setMovieId} = useContext(MoviesContext) as MovieContext
-
-
+  const {videoId,  setVideoId} = useContext(VideosContext) as VideoContext
+ 
+    
+  if(videoId){
+  
+        window.open(
+          `https://www.youtube.com/watch?v=${videoId}`,
+          "_blank"
+          )
+          console.log(videoId)
+          setVideoId("")
+  
+      }
   return ( 
     <section className="text-gray-600  body-font ">
       <div className="container flex flex-row flex-wrap px-5  py-24 mx-auto ">
