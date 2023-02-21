@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react';
 import { MovieContext, VideoContext } from '../context/types';
 import { MoviesContext } from '../context/MovieContext'
 import { VideosContext } from '../context/VideoContext'
@@ -6,19 +6,21 @@ const MovieCard = () => {
   /* Importing the Movie and Video Context States */
   const { movieList, setMovieId } = useContext(MoviesContext) as MovieContext
   const { videoId, setVideoId } = useContext(VideosContext) as VideoContext
+/* UseEffect to prevent error of Updating compoments while mutating it directly */
 
-  /* Checking for Video ID */
-  if (videoId) {
+useEffect(() => {
+    /* Checking for Video ID */
+    if (videoId) {
 
-    /* Opening the Trailer Link using Video ID*/
-    window.open(
-      `https://www.youtube.com/watch?v=${videoId}`,
-      "_blank"
-    )
-    /* Reseting Video ID after Trailer is Opened */
-    setVideoId("")
-
-  }
+      /* Opening the Trailer Link using Video ID*/
+      window.open(
+        `https://www.youtube.com/watch?v=${videoId}`,
+        "_blank"
+      )
+      /* Reseting Video ID after Trailer is Opened */
+      setVideoId("")
+}
+},[videoId])
   return (
     <section className="text-gray-600  body-font ">
       <div className="container flex flex-row flex-wrap px-5  py-24 mx-auto ">

@@ -25,7 +25,7 @@ export const VideoProvider = (props: any) => {
     );
 
     /*  Finding the Official Trailer to get the Official Trailer YT Link "Key"   */
-    const tempVar = resp.data.results.find((item: { name: string; }) => item.name == "Official Trailer").key
+    const tempVar = resp.data.results.find((item: { name: string; }) => item.name === "Official Trailer").key
 
     /*  State assignment for future use globally   */
     setVideoId(tempVar)
