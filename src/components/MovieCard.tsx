@@ -22,7 +22,7 @@ useEffect(() => {
 }
 },[videoId])
   return (
-    <section className="text-gray-600  body-font ">
+    <section className="text-[#EC3D37] body-font ">
       <div className="container flex flex-row flex-wrap px-5  py-24 mx-auto ">
         {movieList && movieList.map((item) => {
           return (
@@ -32,9 +32,9 @@ useEffect(() => {
                   setMovieId(item.id);
                 }}>
                   <img className="h-40 rounded w-full object-cover object-center mb-6" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt="content" />
-                  <h3 className="tracking-widest text-[#ffffff] text-xs font-medium title-font">{item.title}</h3>
-                  <h2 className="text-lg text-[#2dada0] font-medium title-font mb-4" >{item.original_title}</h2>
-                  <p className="leading-relaxed text-[#a9d1c7] text-base">{item.overview}</p>
+                  <h3 className="tracking-widest text-[#EC3D37] text-xs font-medium title-font">{item.title}</h3>
+                  <h2 className="text-lg text-[#EC3D37] font-medium title-font mb-4" >{item.original_title}</h2>
+                  <p className="leading-relaxed text-[#EC3D37] text-base">{item.overview}</p>
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import { MovieListProvider } from './context/MovieContext';
 import { VideoProvider } from './context/VideoContext';
 
 function App() {
+
   return (
     <GenreListProvider>
       <MovieListProvider>
