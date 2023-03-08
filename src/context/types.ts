@@ -20,7 +20,7 @@ export type MovieList = {
   overview: string;
   popularity: number;
   poster_path: string;
-  release_date: Date;
+  release_date: string;
   title: string;
   video: boolean;
   vote_average: number;
@@ -29,6 +29,15 @@ export type MovieList = {
 export interface MovieContext {
   movieList: MovieList[];
   movieId: number | null;
+  showTrend: boolean;
+  nowPlaying: MovieList[]
+  setNowPlaying: Dispatch<SetStateAction<MovieList[]>>
+  setShowPlaying: Dispatch<SetStateAction<boolean>>
+  setShowTrend: Dispatch<SetStateAction<boolean>>
+  trending: MovieList[];
+  singleMovie: MovieList[];
+  setSingleMovie:Dispatch<SetStateAction<MovieList[]>>;
+
   setMovieId: Dispatch<SetStateAction<number>>;
 }
 export type VideoList = {
@@ -46,4 +55,15 @@ export type VideoList = {
 export interface VideoContext {
     videoId: string,
     setVideoId: Dispatch<SetStateAction<string>>
+   /*  OpenTrailer: () => void */
+}
+
+export interface MovieSearchContext {
+  query: string | "",
+  searchData: MovieList[]
+  search: boolean
+  setSearch: Dispatch<SetStateAction<boolean>>
+  setQuery: Dispatch<SetStateAction<string>>
+  
+  setSearchData:Dispatch<SetStateAction<MovieList[]>>;
 }

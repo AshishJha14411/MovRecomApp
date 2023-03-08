@@ -24,6 +24,7 @@ export const MovieSearchProvider = (props: any) => {
         searchApifetch()
         console.log(searchData)
     }
+   
 
     useEffect(() => {
         if(searchData.length!==0){

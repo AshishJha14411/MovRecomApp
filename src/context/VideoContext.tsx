@@ -25,15 +25,15 @@ export const VideoProvider = (props: any) => {
     );
 
     /*  Finding the Official Trailer to get the Official Trailer YT Link "Key"   */
-    const tempVar = resp.data.results.find((item: { name: string; }) => item.name === "Official Trailer").key
+    const tempVar = resp.data.results.find((item: { name: string; }) => item.name.includes("Official Trailer")).key
 
     /*  State assignment for future use globally   */
-    setVideoId(tempVar)
+  setVideoId(tempVar)
   };
 
   useEffect(() => {
     fetchMovieVideoFunc()
-
+    
   /*  Re-running the Function with change in Movie ID   */
   }, [movieId])
   return (
