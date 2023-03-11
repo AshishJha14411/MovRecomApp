@@ -8,8 +8,10 @@ const TrendingPage = () => {
 
     return (
         <section className="text-gray-600  body-font " >
+                <h1 className='w-[100%] pl-[2rem] text-center pb-8 pt-[2rem] text-[#0659AE] font-semibold text-4xl '>Trending Movies Now
+                </h1>
+                <p className='text-center text-[#0659AE] text-md'><sup className='font-extrabold text-[1rem]'>*</sup>This is the Treadning Movies List for the Day according to TMDB</p>
             <div className="container flex flex-row flex-wrap px-5 justify-around  py-24 mx-auto ">
-
                 {trending && trending.map((item) => {
                     return (
                         <div className="flex flex-wrap xl:w-[25%] justify-center m-4" key={item.id} onClick={() => {
