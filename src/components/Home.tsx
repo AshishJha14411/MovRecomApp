@@ -25,7 +25,7 @@ const Home = () => {
     <div className='w-full background'>
       <h1 className='w-[100%] pl-[2rem] text-center pb-8 pt-[2rem] text-[#0659AE] font-semibold text-4xl '>{homeHeading}
       </h1>
-      <p className='text-center text-[#0659AE] text-md'><sup className=''>*</sup>{homeSubHeading}</p>
+      <p className='text-center text-[#0659AE] text-md'><sup className='font-extrabold text-[1rem]'>*</sup>{homeSubHeading}</p>
       <div className="container flex flex-row flex-wrap px-5  py-24 mx-auto ">
 
         {homeData && homeData.map((item) => {
