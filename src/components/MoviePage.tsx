@@ -8,12 +8,12 @@ const MoviePage = () => {
     const {videoId} = useContext(VideosContext) as VideoContext
    
   return (
-    <section className="text-gray-600 body-font mt-[-1rem]" style={{
+    <section className="text-gray-600 body-font" style={{
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${singleMovie[0].backdrop_path})`,
     backgroundSize: `cover`,
     
     }}>
-            <div className=" ml-[-1rem] backdrop-blur-sm">
+            <div className=" ml-[-1rem] backdrop-blur-sm overflow-hidden">
                 {singleMovie && singleMovie.map((item) => {
                     return (
                         <div className="  bg-[#001B41] bg-opacity-50 xl:w-[100%] w-full m-4" key={item.id}>
