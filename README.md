@@ -1,15 +1,25 @@
 # Description
 A suggestion App which allows you to watch trailers of movies based on a selected genre. The App uses TMDB API, Tailwind CSS, TypeScript. The Folder Structure is basic. The trailer opens up in a new tab  
 
-## SnapShot of Project
-- Genre Page
-![Genre Page](./snap1.png)
-- Movie Page
-![Movie Page](./snap2.png)
-
 # Deployed Version
 
 [Live Link](https://movie-app-akj.netlify.app/)
+
+## SnapShot of Project
+# - HomePage
+![Home](./Home.png)
+
+# - Trending Page
+![TrendingPage](./Trending.png)
+
+# - GenreSelection Page
+![Genre](./GenreSelection.png)
+
+# - Fantasy Genre 
+![Fantasy](./FantasyGenre.png)
+
+# - Movie Page
+![Movie](./MoviePage.png)
 
 ## Available Scripts
 
