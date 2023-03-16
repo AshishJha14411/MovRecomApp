@@ -26,10 +26,9 @@ function App() {
   const {genreId, setGenreId} = useContext(GenresContext) as GenreContext
  
   return (
-    <div className=''>
+    <div className='max-h-[100vh]'>
     <VideoProvider>
       <MovieSearchProvider>
-      
         <Navbar />
           <Routes>
               <Route path="/" element= {<Home />} />

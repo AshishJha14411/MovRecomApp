@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { VideosContext } from '../context/VideoContext'
 import { GenresContext } from '../context/GenreContext'
 import { MovieSearch } from '../context/MovieSearch'
@@ -11,9 +11,10 @@ const Navbar = () => {
   const { setSearch, setQuery, query, setSearchData } = useContext(MovieSearch) as MovieSearchContext
   const { setVideoId } = useContext(VideosContext) as VideoContext
   const { setShowTrend, setSingleMovie } = useContext(MoviesContext) as MovieContext
+  const navigate = useNavigate()
   return (
-    <nav className='bg-[#04070D] flex flex-row flex-wrap justify-start p-5 mx-[0]  text-[#0659AE]  text-center ' >
-      <img src={logo} alt="nav-logo" className='w-[10rem] ml-[3rem] p-2' />
+    <nav className='bg-[#04070D] flex xl:flex-row xl:justify-start p-5 mx-[0] flex-col items-center  text-[#0659AE] text-center ' >
+      <img src={logo} alt="nav-logo" className='xl:w-[10rem] w-[13rem] lg:ml-[2rem] xl:ml-[3rem] p-2' />
       <ul className=' flex flex-row flex-wrap justify-around mt-[1rem] px-[3rem] w-[35%]'>
         <li>
           <Link to='/'>
@@ -39,7 +40,7 @@ const Navbar = () => {
         </Link>
         <li>
           <Link to='/genrecard'>
-            <button className='cursor-pointer hover:text-[#B5F1FA] transition ease-in-out duration-500 font-semibold text-[1.2rem]' onClick={() => {
+            <button className='cursor-pointer hover:text-[#B5F1FA] transition ease-in-out duration-500 pb-[1rem] font-semibold text-[1.2rem]' onClick={() => {
               setGenreId(0);
               setSearch(false)
               setQuery("")
@@ -50,10 +51,10 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <div className='w-[50%] flex flex-row flex-wrap justify-between'>
+      <div className='w-[100%] xs:w-[50%] flex xl:flex-row   xl:justify-between flex-col items-center'>
         <input
           type='text'
-          className='w-[70%] z-10 p-3 h-[3.6rem] text-[#001B41] font-semibold text-[1rem]'
+          className='w-[80%] mx-auto z-10 p-3 h-[3.6rem] text-[#001B41] font-semibold text-[1rem]'
           placeholder='Enter the movie name you want to Search'
           value={query}
           onChange={e => {
@@ -64,6 +65,7 @@ const Navbar = () => {
         <button className=' rounded-lg py-2 px-[3rem] cursor-pointer hover:text-[#B5F1FA] transition ease-in-out duration-500 font-semibold text-[1.2rem]' onClick={() => {
           setSearch(true)
           setVideoId("")
+          navigate("/")
           setSingleMovie([])
           setSearchData([])
         }}>Search</button>

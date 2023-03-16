@@ -1,45 +1,33 @@
-import { useContext, useEffect } from 'react';
-import { MovieContext, VideoContext } from '../context/types';
+import  {useContext} from 'react'
+import { MovieContext } from '../context/types';
 import { MoviesContext } from '../context/MovieContext'
-import { VideosContext } from '../context/VideoContext'
 const MovieCard = () => {
-  /* Importing the Movie and Video Context States */
-  const { movieList, setMovieId } = useContext(MoviesContext) as MovieContext
-  const { videoId, setVideoId } = useContext(VideosContext) as VideoContext
-/* UseEffect to prevent error of Updating compoments while mutating it directly */
 
-useEffect(() => {
-    /* Checking for Video ID */
-    if (videoId) {
+  const {movieList,setSingleMovie, setMovieId} = useContext(MoviesContext) as MovieContext
 
-      /* Opening the Trailer Link using Video ID*/
-      window.open(
-        `https://www.youtube.com/watch?v=${videoId}`,
-        "_blank"
-      )
-      /* Reseting Video ID after Trailer is Opened */
-      setVideoId("")
-}
-},[videoId])
-  return (
-    <section className="text-[#EC3D37] body-font ">
-      <div className="container flex flex-row flex-wrap px-5  py-24 mx-auto ">
+  return ( 
+    <section className="">
+      <div className="flex w-full flex-row flex-wrap py-24 mx-auto ">
+       
         {movieList && movieList.map((item) => {
-          return (
-            <div className="flex flex-wrap xl:w-[30%] justify-center m-4" key={item.id}>
-              <div className="xl:w-[100%]  md:w-1/2 p-4">
-                <div className="bg-[#272a2c] cursor-pointer  p-2 h-[105%] rounded-lg" onClick={() => {
-                  setMovieId(item.id);
-                }}>
-                  <img className="h-40 rounded w-full object-cover object-center mb-6" src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt="content" />
-                  <h3 className="tracking-widest text-[#EC3D37] text-xs font-medium title-font">{item.title}</h3>
-                  <h2 className="text-lg text-[#EC3D37] font-medium title-font mb-4" >{item.original_title}</h2>
-                  <p className="leading-relaxed text-[#EC3D37] text-base">{item.overview}</p>
-                </div>
-              </div>
+        return (
+        <div className="flex flex-wrap w-[100%] xl:w-[30%] md:w-[40%] justify-center mx-auto" key={item.id} onClick={() => {
+          setSingleMovie([item])
+      
+        }}>
+          <div className="xl:w-[100%] w-[100%] p-4">
+            <div className=" cursor-pointer w-[100%] mx-auto p-2 h-[105%] rounded-lg" onClick={()=> {
+              setMovieId(item.id);
+              }} >
+              <img className="h-[60%] rounded w-full object-contain object-center mb-6"  src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`} alt="content"  />
+              <p className="tracking-widest text-[#B5F1FA] text-lg pb-2 text-center font-medium title-font">{item.title}</p>
+              <p className="tracking-widest text-[#B5F1FA] text-md pb-2 font-medium text-center title-font">Rating: {item.vote_average}</p>
+             
             </div>
-          )
-        })}
+          </div>          
+        </div>
+        )
+      })}
       </div>
     </section>
   )
