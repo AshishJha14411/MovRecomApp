@@ -8,7 +8,7 @@ const MoviePage = () => {
     const {videoId} = useContext(VideosContext) as VideoContext
    
   return (
-    <section className="text-gray-600 body-font" style={{
+    <section className="text-gray-600 body-font mt-[-1rem]" style={{
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${singleMovie[0].backdrop_path})`,
     backgroundSize: `cover`,
     
