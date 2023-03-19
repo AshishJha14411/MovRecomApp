@@ -11,8 +11,9 @@ export const MovieSearchProvider = (props: any) => {
     const [searchData, setSearchData] = useState<MovieList[] | []>([])
     //const [searched, setSearched] = useState<
     const searchApifetch = async () => {
+        const apiKey: string | undefined = process.env.REACT_APP_API_KEY
         const resp = await axios.get(
-            `https://api.themoviedb.org/3/search/movie?api_key=85e09ce3f5cb7e9850a5011d3898d516&language=en-US&query=${query}&page=1&include_adult=false`
+            `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${query}&page=1&include_adult=false`
         );
         const tempVar = resp.data.results
         setSearchData(tempVar)

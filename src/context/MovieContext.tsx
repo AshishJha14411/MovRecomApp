@@ -16,16 +16,16 @@ export const MovieListProvider= (props:any) => {
   const [nowPlaying, setNowPlaying] = useState<MovieList[]>([])
   const [singleMovie, setSingleMovie] = useState<MovieList[]>([])
   const [showPlaying, setShowPlaying] = useState<boolean>(true)
-  
+  const apiKey: string | undefined = process.env.REACT_APP_API_KEY
   const fetchMovieFunc = async () => {
     const resp = await axios.get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=85e09ce3f5cb7e9850a5011d3898d516&with_genres=${genreId}`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}`
     );
     setMovieList(resp.data.results)
   };
   const fetchTrendingMovie = async () => {
     const resp = await axios.get(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=85e09ce3f5cb7e9850a5011d3898d516`
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`
     )
     const tempVar = resp.data.results
     setTrending(tempVar)
@@ -33,7 +33,7 @@ export const MovieListProvider= (props:any) => {
   }
   const fetchNowPlaying = async() => {
     const resp = await axios.get(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=85e09ce3f5cb7e9850a5011d3898d516&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`
     )
       const tempVar = resp.data.results
       console.log(tempVar)
