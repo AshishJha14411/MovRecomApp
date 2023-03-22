@@ -4,11 +4,17 @@ import { MovieSearch } from '../context/MovieSearch';
 import { MoviesContext } from '../context/MovieContext'
 import { useState } from 'react';
 const Home = () => {
+  /* local state for switching between home data and searched data */
   const [homeData, setHomeData] = useState<MovieList[]>([])
+  /*getting search data and status of the search from search context */
   const { searchData, search } = useContext(MovieSearch) as MovieSearchContext
+  /* Changing the heading disclaimer text with respect to data being displayed */
   const [homeHeading, setHomeHeading] = useState<string>("")
+  /* Changing the sub-heading disclaimer text with respect to data being displayed */
   const [homeSubHeading, setHomeSubHeading] = useState<string>("")
+  /* calling now playing movie data and calling set states for single movie and movie id */
   const { nowPlaying, setSingleMovie, setMovieId } = useContext(MoviesContext) as MovieContext
+  /* Casting a delay in switching the text data */
   setTimeout(() => {
     if (search) {
       setHomeData(searchData)
@@ -27,12 +33,10 @@ const Home = () => {
       </h1>
       <p className='text-center text-[#B5F1FA] text-md'><sup className='font-extrabold text-[1rem]'>*</sup>{homeSubHeading}</p>
       <div className="container flex flex-row flex-wrap px-5  py-24 mx-auto ">
-
         {homeData && homeData.map((item) => {
           return (
             <div className="flex flex-wrap xl:w-[30%] md:w-[80%] lg:w-[40%] w-full mb-[3rem] justify-center mx-auto" key={item.id} onClick={() => {
               setSingleMovie([item]);
-
             }}>
               <div className="xl:w-[100%] w-full md:w-[100%]" style={{
                 backgroundImage: `url(https://image.tmdb.org/t/p/original/${item.backdrop_path})`,

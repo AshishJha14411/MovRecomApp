@@ -7,10 +7,15 @@ import { GenreContext, VideoContext, MovieSearchContext, MovieContext } from '..
 import logo from '../assets/logo-no-background.png'
 import { MoviesContext } from '../context/MovieContext'
 const Navbar = () => {
+  /* setting genre Id */
   const {setGenreId } = useContext(GenresContext) as GenreContext
+  /* states need for searching the data */
   const { setSearch, setQuery, query, setSearchData } = useContext(MovieSearch) as MovieSearchContext
+  /* reseting video id to prevent unnecessary redirects */
   const { setVideoId } = useContext(VideosContext) as VideoContext
+  /* states for setting single movie or showing trending page */
   const { setShowTrend, setSingleMovie } = useContext(MoviesContext) as MovieContext
+  /* setting up navigate hook to navigate to home page */
   const navigate = useNavigate()
   return (
     <nav className='bg-[#04070D] flex xl:flex-row xl:justify-start p-5 mx-[0] flex-col items-center  text-[#0659AE] text-center ' >

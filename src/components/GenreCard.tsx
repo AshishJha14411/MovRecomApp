@@ -2,6 +2,7 @@ import  { useContext } from 'react'
 import { GenresContext } from '../context/GenreContext'
 import { GenreContext } from '../context/types';
 const GenreCard = () => {
+  /* calling the genre list from context and setting genre id based on click */
   const { genres, setGenreId } = useContext(GenresContext) as GenreContext
   return (
     <div className='w-[90%] flex flex-row flex-wrap mx-auto'>

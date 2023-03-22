@@ -3,7 +3,9 @@ import { MoviesContext } from '../context/MovieContext'
 import { MovieContext } from '../context/types'
 
 const TrendingPage = () => {
+    /* trending movie data and setting single movie data onclick */
     const { trending, setSingleMovie } = useContext(MoviesContext) as MovieContext
+    /* setting movie id onclick */
     const { setMovieId } = useContext(MoviesContext) as MovieContext
 
     return (

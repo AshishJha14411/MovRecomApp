@@ -5,11 +5,15 @@ import { useNavigate } from 'react-router-dom';
 export const MovieSearch = createContext<MovieSearchContext | null>(null)
 
 export const MovieSearchProvider = (props: any) => {
+    /* Setting up navigate for future use */
     const navigate = useNavigate()
+    /* Setting search string query */
     const [query, setQuery] = useState<string>("")
+    /* Initiating Search on click */
     const [search, setSearch] = useState(false)
+    /* State for storing data we get from searching  */
     const [searchData, setSearchData] = useState<MovieList[] | []>([])
-    //const [searched, setSearched] = useState<
+    /* fetching search data */
     const searchApifetch = async () => {
         const apiKey: string | undefined = process.env.REACT_APP_API_KEY
         const resp = await axios.get(
@@ -17,16 +21,11 @@ export const MovieSearchProvider = (props: any) => {
         );
         const tempVar = resp.data.results
         setSearchData(tempVar)
-            console.log(tempVar)
-            
     }
-
+/* if search data is not present and search is false then search the data  */
     if (searchData.length===0 && search) {
         searchApifetch()
-        console.log(searchData)
     }
-   
-
     useEffect(() => {
         if(searchData.length!==0){
             navigate("/")

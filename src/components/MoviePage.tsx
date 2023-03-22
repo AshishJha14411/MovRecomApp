@@ -4,14 +4,15 @@ import { MovieContext, VideoContext } from '../context/types'
 import { VideosContext } from '../context/VideoContext';
 
 const MoviePage = () => {
+    /* Getting single movie details */
     const { singleMovie } = useContext(MoviesContext) as MovieContext
+    /* getting official video id to redirect to youtube trailer */
     const {videoId} = useContext(VideosContext) as VideoContext
    
   return (
     <section className="text-gray-600 body-font mt-[-1rem]" style={{
     backgroundImage: `url(https://image.tmdb.org/t/p/original/${singleMovie[0].backdrop_path})`,
-    backgroundSize: `cover`,
-    
+    backgroundSize: `cover`,   
     }}>
             <div className=" ml-[-1rem] backdrop-blur-sm overflow-hidden">
                 {singleMovie && singleMovie.map((item) => {
