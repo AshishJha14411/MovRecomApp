@@ -1,15 +1,15 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { GenreListProvider, GenresContext } from './context/GenreContext';
+import { GenreListProvider } from './context/GenreContext';
 import { MovieListProvider } from './context/MovieContext';
 import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  /* Wrapping the App component with Context and root router */
   <BrowserRouter>
     <GenreListProvider>
       <MovieListProvider>

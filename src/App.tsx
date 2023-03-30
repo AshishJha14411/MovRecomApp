@@ -19,11 +19,9 @@ import TrendingPage from './components/TrendingPage';
 import MoviePage from './components/MoviePage';
 import { MoviesContext } from './context/MovieContext';
 
-import { useNavigate } from 'react-router-dom'
 function App() {
-  
-  const {movieList,singleMovie, setSingleMovie,movieId, setMovieId} = useContext(MoviesContext) as MovieContext
-  const {genreId, setGenreId} = useContext(GenresContext) as GenreContext
+  /* Genre Id to switch between MovieCard and GenreCard component */
+  const {genreId} = useContext(GenresContext) as GenreContext
  
   return (
     <div className='max-h-[100vh]'>
